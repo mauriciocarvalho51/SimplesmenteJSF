@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Usuario formulário</title>
+    </h:head>
+    
+    <h:body>
+
+        <ui:composition template="/template.xhtml">
+            <ui:define name="content">
+
+                <h:form>
+
+                    <h:panelGrid columns="2" columnClasses="rightaling, leftaling, rightaling" >
+
+                        <h:outputLabel for="textonome" value="Nome:" />
+                        <h:panelGroup>
+                            <h:inputText id="textonome" label="campo nome" value="#{beanDoUsuario.usuarioatual.nome}" immediate="true" />
+                            <h:message for="textonome" />
+                        </h:panelGroup>
+
+                        <h:outputLabel for="textofone" value="Telefone:"/>
+                        <h:inputText id="textofone" label="campo fone" value="#{beanDoUsuario.usuarioatual.telefone}" />
+
+                        <h:outputLabel for="textoemail" value="E-mail:" />
+                        <h:panelGroup>
+                            <h:inputText id="textoemail" label="campo e-mail" size="35" maxlength="60" value="#{beanDoUsuario.usuarioatual.email}" required="true"/>
+                            <h:message for="textoemail"/>
+                        </h:panelGroup>
+
+                        <h:outputLabel for="textouser" value="Username:" />
+                        <h:panelGroup>
+                            <h:inputText id="textouser" label="campo username" size="35" maxlength="60" value="#{beanDoUsuario.usuarioatual.user}" required="true"/>
+                            <h:message for="textouser"/>
+                        </h:panelGroup>
+
+                        <h:outputLabel for="textosenha" value="Senha:" />
+                        <h:panelGroup>
+                            <h:inputSecret id="textosenha" label="campo senha" size="8" maxlength="12" value="#{beanDoUsuario.usuarioatual.senha}" required="true"/>
+                            <h:message for="textosenha"/>
+                        </h:panelGroup>
+
+                        <h:outputLabel for="sexo" value="Sexo:" />
+                        <h:selectOneRadio id="sexo" label="campo sexo" value="#{beanDoUsuario.usuarioatual.sexo}" >
+                            <f:selectItem itemLabel="Masculino" itemValue="1" />
+                            <f:selectItem itemLabel="Feminino" itemValue="2" />
+                        </h:selectOneRadio>
+
+                        <h:outputLabel for="Estado" value="Estado" />
+                        <h:panelGroup>
+                            <h:selectOneMenu id="Estado" label="campo estado" value="#{beanDoUsuario.usuarioatual.estado}" required="true" >
+                                <f:selectItem itemLabel="" itemValue="" />
+                                <f:selectItem itemLabel="RS" itemValue="RS" />
+                                <f:selectItem itemLabel="SC" itemValue="SC" />
+                                <f:selectItem itemLabel="PR" itemValue="PR" />
+                            </h:selectOneMenu>
+                            <h:message for="Estado"/>
+                        </h:panelGroup>
+
+                        <h:outputLabel for="cidade" value="Cidade" />
+                        <h:panelGroup>
+                            <h:selectOneMenu id="cidade" label="campo cidade" value="#{beanDoUsuario.usuarioatual.cidade}" required="true" >
+                                <f:selectItem itemLabel="" itemValue="" />
+                                <f:selectItem itemLabel="Porto Alegre" itemValue="Porto Alegre" />
+                                <f:selectItem itemLabel="Pelotas" itemValue="Pelotas" />
+                                <f:selectItem itemLabel="Passo Fundo" itemValue="Passo Fundo" />
+                                <f:selectItem itemLabel="Novo Hamburgo" itemValue="Novo Hamburgo" />
+                                <f:selectItem itemLabel="Santa Maria" itemValue="Santa Maria" />
+                                <f:selectItem itemLabel="Florianópolis" itemValue="Florianópolis" />
+                                <f:selectItem itemLabel="Joinvile" itemValue="Joinvile" />
+                                <f:selectItem itemLabel="Blumenau" itemValue="Blumenau" />
+                                <f:selectItem itemLabel="Balneário Camburiú" itemValue="Balneário Camburiú" />
+                                <f:selectItem itemLabel="Curitiba" itemValue="Curitiba" />
+                                <f:selectItem itemLabel="Maringá" itemValue="Maringá" />
+                                <f:selectItem itemLabel="Londrina" itemValue="Londrina" />
+                                <f:selectItem itemLabel="Ponta Grossa" itemValue="Ponta Grossa" />
+                                <f:selectItem itemLabel="Foz do Iguaçu" itemValue="Foz do Iguaçu" />
+                            </h:selectOneMenu>
+                            <h:message for="cidade"/>
+                        </h:panelGroup>
+
+                        <h:outputLabel for="isadmin" value="Tornar Administrador?"/>
+                        <h:selectBooleanCheckbox id="isadmin" value="#{beanDoUsuario.usuarioatual.admin}" />
+
+                        <h:panelGroup/>
+                        <h:commandButton value="CADASTRAR" action="#{beanDoUsuario.cadastrarUsuario()}" />
+
+                    </h:panelGrid>
+
+                </h:form>
+
+            </ui:define>
+        </ui:composition>
+
+    </h:body>
+        
+</html>
+

@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+
+        <ui:composition template="/template.xhtml">
+            <ui:define name="content">
+
+                <h:form>
+
+                    <h:panelGrid columns="3" columnClasses="rightaling, leftaling, rightaling" >
+
+                        <h:outputLabel value="Descrição:" for="TextDescri"/>
+                        <h:inputText id="TextDescri" label="campo descrição" size="60" maxlength="100" value="#{beanDoProduto.produtoatual.descricao}" required="true"/>
+                        <h:message for="TextDescri"/>
+
+                        <h:outputLabel value="Valor: R$ " for="TextVal"/>
+                        <h:inputText id="TextVal" label="campo preço" size="10" maxlength="14" value="#{beanDoProduto.produtoatual.preco}" required="true"/>
+                        <h:message for="TextVal"/>
+
+
+
+                        <h:panelGroup/>
+                        <h:panelGroup>
+                            <h:commandButton value="Cadastrar" action="#{beanDoProduto.adicionarProduto()}" />
+                            <h:commandButton value="Cancelar" action="index" immediate="true"/>
+                            <h:commandButton value="Voltar" action="index" />
+                            <h:commandButton value="Limpar" action="#{beanDoProduto.limparProduto()}"/>
+                        </h:panelGroup>
+
+                    </h:panelGrid>
+
+                </h:form>
+
+            </ui:define>
+        </ui:composition>
+
+    </h:body>
+</html>
+
