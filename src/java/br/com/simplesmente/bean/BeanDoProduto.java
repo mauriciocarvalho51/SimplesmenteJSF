@@ -1,6 +1,7 @@
 package br.com.simplesmente.bean;
 
 import br.com.simplesmente.entidade.Produto;
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -12,7 +13,7 @@ import javax.faces.bean.SessionScoped;
  */
 @ManagedBean
 @SessionScoped
-public class BeanDoProduto {
+public class BeanDoProduto implements Serializable {
 
     private List<Produto> listadeprodutos;
     private Produto produtoatual;
